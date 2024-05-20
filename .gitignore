@@ -1,0 +1,8 @@
+# created by virtualenv automatically
+/share
+/lib
+/bin
+
+pip-log.txt 
+
+.ipynb_checkpoints
