@@ -2,6 +2,7 @@
 /share
 /lib
 /bin
+/etc
 
 pip-log.txt 
 
