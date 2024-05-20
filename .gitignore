@@ -6,3 +6,5 @@
 pip-log.txt 
 
 .ipynb_checkpoints
+
+pyvenv.cfg
