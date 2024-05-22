@@ -3,6 +3,7 @@
 /lib
 /bin
 /etc
+audio_data/
 
 pip-log.txt 
 
