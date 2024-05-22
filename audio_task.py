@@ -1,10 +1,12 @@
-import soundfile as sf
+import sys
+import argparse
 import librosa
+import matplotlib
 import matplotlib.pyplot as plt
 import os
 import numpy as np
-import matplotlib
-matplotlib.use('TkAgg')
+# pip install PyQt5
+matplotlib.use('qtagg')
 
 SUPPORTED_FORMATS = ['aiff',
                      'au',
@@ -33,16 +35,27 @@ SUPPORTED_FORMATS = ['aiff',
                      'wve',
                      'xi']
 
+class AudioDataNotValid(BaseException):
+    """
+    Exception raised for invalid audio data.
+    """
+    pass
 
 def load_audio_files(directory: str, file_paths: list[str]) -> list[tuple[np.ndarray, int]]:
-    """Loads audio files from the specified directory.
+    """
+    Loads audio files from the specified directory.
 
-    Args:
-        directory (str): The parent directory with audio files.
-        file_paths (list): List of audio file paths relative to the directory.
+    Parameters
+    ----------
+    directory : str
+        The parent directory with audio files.
+    file_paths : list[str]
+        List of audio file paths relative to the directory.
 
-    Returns:
-        list: list of tuples with each tuple data of the loaded audio file.
+    Returns
+    -------
+    list[tuple[np.ndarray, int]]
+        List of tuples with each tuple data of the loaded audio file.
     """
     loaded_sounds = []
     for file_path in file_paths:
@@ -62,34 +75,101 @@ def load_audio_files(directory: str, file_paths: list[str]) -> list[tuple[np.nda
     return loaded_sounds
 
 
-def plot_spectogram_hz(sound_names, raw_sounds):
-    """Plots spectogram of sounds in Hz scale.
-
-    Args:
-        sound_names (list): List of sound names.
-        raw_sounds (list): list of tuples containing raw sound array and its sampling rate.
+def plot_spectogram_hz(sound_names: list[str], raw_sounds: list[tuple[np.ndarray, int]]):
     """
-    # check if proper data,
-    for sound_name, (y, sr) in zip(sound_names, raw_sounds):
+    Plots spectogram of sounds in Hz scale.
+
+    Parameters
+    ----------
+    sound_names : list[str]
+        List of sound names.
+    raw_sounds : list[tuple[np.ndarray, int]]
+        List of tuples containing raw sound array and its sampling rate.
+
+    """
+    for sound_name, (y, _) in zip(sound_names, raw_sounds):
         if librosa.util.valid_audio(y):
-            plt.figure(figsize=(10, 4))
+            fig, ax = plt.subplots(1, 1, figsize=(6, 4))
             D = librosa.stft(y)
             S_db = librosa.amplitude_to_db(np.abs(D), ref=np.max)
-            plt.subplot(1, 1, 1)
-            librosa.display.specshow(S_db, x_axis='time', y_axis='log')
-            plt.colorbar(format='%+2.0f dB')
-            plt.title(f'Spectrogram in Hz scale of {sound_name}')
+            img = librosa.display.specshow(
+                S_db, x_axis='time', y_axis='log', ax=ax)
+            fig.colorbar(img, ax=ax, format='%+2.0f dB')
+            ax.set(title=f'Spectrogram of {sound_name}')
             plt.tight_layout()
-            plt.show()
+            fig.canvas.manager.set_window_title(
+                f'[Log(Hz) Scale] {sound_name}')
+        else:
+            raise AudioDataNotValid(f"Invalid audio data for {sound_name}")
+    plt.show()
 
 
-if __name__ == '__main__':
-    parent_directory = "./audio_data/Actor_01"
-    sound_file_paths = ['03-01-01-01-01-01-01.wav',
-                        '03-01-01-01-01-02-01.wav', '03-01-01-01-02-01-01.wav']
+def plot_spectogram_note_scale(sound_names: list[str], raw_sounds: list[tuple[np.ndarray, int]]):
+    """
+    Plots spectogram of sounds in log scale with pitches marked.
+
+    Parameters
+    ----------
+    sound_names : list[str]
+        List of sound names.
+    raw_sounds : list[tuple[np.ndarray, int]]
+        List of tuples containing raw sound array and its sampling rate.
+    """
+    for sound_name, (y, _) in zip(sound_names, raw_sounds):
+        if librosa.util.valid_audio(y):
+            fig, ax = plt.subplots(1, 1, figsize=(6, 4))
+            D = librosa.stft(y)
+            S_db = librosa.amplitude_to_db(np.abs(D), ref=np.max)
+            img = librosa.display.specshow(
+                S_db, x_axis='time', y_axis='fft_note', ax=ax)
+            fig.colorbar(img, ax=ax, format='%+2.0f dB')
+            ax.set(title=f'Spectrogram of {sound_name}')
+            plt.tight_layout()
+            fig.canvas.manager.set_window_title(f'[Note Scale] {sound_name}')
+        else:
+            raise AudioDataNotValid(f"Invalid audio data for {sound_name}")
+    plt.show()
+
+
+def main():
+    # parent_directory = "./audio_data/Actor_01"
+    # sound_file_paths = ['03-01-01-01-01-01-01.wav',
+    #                     '03-01-01-01-01-02-01.wav', '03-01-01-01-02-01-01.wav']
+
+    parser = argparse.ArgumentParser(description="Load and plot spectrograms of audio files.")
+    parser.add_argument("parent_directory", type=str, help="The parent directory with audio files.")
+    parser.add_argument("sound_file_paths", type=str, nargs='+', help="List of audio file paths relative to the directory.")
+    args = parser.parse_args()
+
+    parent_directory = args.parent_directory
+    sound_file_paths = args.sound_file_paths
+    sound_names = [f'Sound {i+1}' for i in range(len(sound_file_paths))]
+
+    sound_names = [f'Sound {i}' for i in sound_file_paths]
 
     loaded_sounds = load_audio_files(parent_directory, sound_file_paths)
 
-    sound_names = ["First Voiceline", "Second Voiceline", "Third Voiceline"]
-    plot_spectogram_hz(sound_names, loaded_sounds)
-    # print(loaded_sounds)
+    while True:
+        print("\nChoose an option:")
+        print("1. Plot spectrogram in Hz scale")
+        print("2. Plot spectrogram in note scale")
+        print("3. Exit")
+        choice = input("Enter your choice (1/2/3): ")
+        match choice:
+            case '1':
+                plot_spectogram_hz(sound_names, loaded_sounds)  
+            case '2':
+                plot_spectogram_note_scale(sound_names, loaded_sounds)
+            case '3':
+                print('Exiting the program')
+                break
+            case _:
+                print("Invalid Choice")
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\nKeyboard Interrupt. Exiting...")
+        sys.exit(0)
