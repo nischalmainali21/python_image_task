@@ -6,6 +6,7 @@ try:
     import matplotlib.pyplot as plt
     import os
     import numpy as np
+    from tqdm import tqdm
     # pip install PyQt5
     matplotlib.use('qtagg')
 except ImportError as impErr:
@@ -65,7 +66,7 @@ def load_audio_files(directory: str, file_paths: list[str]) -> list[tuple[np.nda
         List of tuples with each tuple containing arrya and sampling rate of the loaded audio file.
     """
     loaded_sounds = []
-    for file_path in file_paths:
+    for file_path in tqdm(file_paths, desc='Loading Files'):
         full_path = os.path.join(directory, file_path)
         if os.path.exists(full_path):
             file_format = os.path.splitext(full_path)[1][1:]
@@ -94,7 +95,7 @@ def plot_spectogram_hz(sound_names: list[str], raw_sounds: list[tuple[np.ndarray
         List of tuples containing raw sound array and its sampling rate.
 
     """
-    for sound_name, (y, _) in zip(sound_names, raw_sounds):
+    for sound_name, (y, _) in tqdm(zip(sound_names, raw_sounds), desc='Generating Spectogram'):
         if librosa.util.valid_audio(y):
             fig, ax = plt.subplots(1, 1, figsize=(6, 4))
             D = librosa.stft(y)
