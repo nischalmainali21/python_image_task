@@ -62,7 +62,7 @@ def load_audio_files(directory: str, file_paths: list[str]) -> list[tuple[np.nda
     Returns
     -------
     list[tuple[np.ndarray, int]]
-        List of tuples with each tuple data of the loaded audio file.
+        List of tuples with each tuple containing arrya and sampling rate of the loaded audio file.
     """
     loaded_sounds = []
     for file_path in file_paths:
