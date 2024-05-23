@@ -1,5 +1,5 @@
 Name;Address;Description
-Ariana Carroll;424 Anderson Key, West Kathyshire, IA 93195;Food store less buy 
+Ariana Carroll;;Food store less buy 
 Natalie Jones;2119 John Plains, New Sydney, MN 31049;Maintain although ad
 Robert Salinas;04698 Bullock Villages, Keithhaven, OH 88916;Investment hold actu
 Emily Frey;440 Marc Bypass Apt. 486, Lake Cody, DC 67987;Operation sister awa
