@@ -1,12 +1,17 @@
-import sys
-import argparse
-import librosa
-import matplotlib
-import matplotlib.pyplot as plt
-import os
-import numpy as np
-# pip install PyQt5
-matplotlib.use('qtagg')
+try:
+    import sys
+    import argparse
+    import librosa
+    import matplotlib
+    import matplotlib.pyplot as plt
+    import os
+    import numpy as np
+    # pip install PyQt5
+    matplotlib.use('qtagg')
+except ImportError as impErr:
+    print(f"[Error]: Required packages not installed\n{impErr}")
+    sys.exit(1)
+
 
 SUPPORTED_FORMATS = ['aiff',
                      'au',
@@ -35,11 +40,13 @@ SUPPORTED_FORMATS = ['aiff',
                      'wve',
                      'xi']
 
+
 class AudioDataNotValid(BaseException):
     """
     Exception raised for invalid audio data.
     """
     pass
+
 
 def load_audio_files(directory: str, file_paths: list[str]) -> list[tuple[np.ndarray, int]]:
     """
@@ -136,9 +143,12 @@ def main():
     # sound_file_paths = ['03-01-01-01-01-01-01.wav',
     #                     '03-01-01-01-01-02-01.wav', '03-01-01-01-02-01-01.wav']
 
-    parser = argparse.ArgumentParser(description="Load and plot spectrograms of audio files.")
-    parser.add_argument("parent_directory", type=str, help="The parent directory with audio files.")
-    parser.add_argument("sound_file_paths", type=str, nargs='+', help="List of audio file paths relative to the directory.")
+    parser = argparse.ArgumentParser(
+        description="Load and plot spectrograms of audio files.")
+    parser.add_argument("parent_directory", type=str,
+                        help="The parent directory with audio files.")
+    parser.add_argument("sound_file_paths", type=str, nargs='+',
+                        help="List of audio file paths relative to the directory.")
     args = parser.parse_args()
 
     parent_directory = args.parent_directory
@@ -157,7 +167,7 @@ def main():
         choice = input("Enter your choice (1/2/3): ")
         match choice:
             case '1':
-                plot_spectogram_hz(sound_names, loaded_sounds)  
+                plot_spectogram_hz(sound_names, loaded_sounds)
             case '2':
                 plot_spectogram_note_scale(sound_names, loaded_sounds)
             case '3':
