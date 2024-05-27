@@ -1,0 +1,40 @@
+,Patient ID,Name,Gender,Age,Phone Number,Address,Race,Ethnicity,Marital Status
+0,65d12976-9588-4cfa-a795-216302a2ece9,Ms. Conrad Stracke,female,27 years,316-617-5096,"Newton, MA",White,Nonhispanic,unknown
+1,a195633e-d36d-4abe-92bb-02994e9cb348,Mrs. Blanca Denesik,female,49 years,1-734-978-8625,"Stoughton, MA",White,Nonhispanic,married
+2,d0ed1873-9ac6-4c98-813e-86a041ce78c5,Mr. Felton Bosco,male,93 years,707-709-1861,"Easton, MA",White,Nonhispanic,married
+3,2db81051-c02a-4c72-b17d-feb8c49cded7, Madaline Gorczany,male,9 years,580-812-0728 x20440,"Southborough, MA",White,Nonhispanic,unknown
+4,d76cce33-3dec-4874-b352-fa81812517c7,Mrs. Trycia Koch,female,76 years,496-882-5625 x30016,"Southbridge, MA",Black,Nonhispanic,married
+5,aa3973d9-b64f-4a36-8cb6-f2719080b52f,Mr. Ashlynn Gleichner,male,70 years,779-283-1133 x7121,"Dedham, MA",White,Nonhispanic,married
+6,80bb41d3-ebb4-42e6-b087-6ee89b0463a9,Mrs. Zachary Willms,female,65 years,493-648-2471 x26272,"Shrewsbury, MA",White,Nonhispanic,married
+7,117335bb-33ff-4897-ac27-af4b3f11135f,Mr. Bart Schaden,male,75 years,375-025-8548 x42903,"Worcester, MA",White,Nonhispanic,married
+8,9bf6df85-12db-49d1-b754-b5adcdbb6115, Frederique Witting,male,47 years,358-845-4625,"Sharon, MA",White,Nonhispanic,unknown
+9,f72f7612-7acd-4dbd-b736-948a44bb1a36,Mrs. Lavon Medhurst,female,98 years,963-376-1584 x17841,"Easthampton, MA",Asian,Nonhispanic,married
+10,3a5357d9-13f3-42de-8fdc-14a1a6cae148,Mr. Elouise Dooley,male,84 years,682-907-8225 x71601,"Lowell, MA",White,Nonhispanic,married
+11,2f3f9a7e-8142-40c8-8c4a-b58bc815b48d, Quincy Treutel,female,16 years,456-050-1930 x9499,"Worcester, MA",White,Nonhispanic,unknown
+12,ffb90781-eea4-4635-aeb5-790c0b67bb4a,Mrs. Emelia Ferry,female,116 years,223-369-1024,"Templeton, MA",White,Nonhispanic,married
+13,8b47143f-2d3b-4425-a872-569af4ec0818,Mrs. Tremaine Dicki,female,44 years,1-109-767-6386 x585,"Boston, MA",White,Nonhispanic,married
+14,83044f55-e41f-4489-a0b8-f69bd6c7b1d4,Mrs. Waylon Wunsch,female,37 years,616-811-8945,"Lynn, MA",Other,Puerto_rican,married
+15,5265a2b0-1bbc-4993-9042-b8d86ba65f10,Mrs. Berneice Kshlerin,female,69 years,940-129-3889 x903,"Springfield, MA",White,Nonhispanic,married
+16,99937389-654f-4a48-8e74-ac81cf260e0f,Mr. Lexi Swift,male,42 years,392-129-8441,"Westfield, MA",White,Nonhispanic,single
+17,c92cad20-6dd1-4e22-b3d9-6f0507854a96,Mrs. Jada Gerhold,female,62 years,533-091-9937,"Abington, MA",White,Nonhispanic,married
+18,bd0acd69-580e-4896-9974-2ad9d041ca0b,Mrs. Lavina Lemke,female,103 years,506-111-6833,"Worcester, MA",White,Nonhispanic,married
+19,f10fd607-58ce-4be6-b1bd-a98898c8e0e5,Mrs. Victor Kuphal,female,89 years,509-809-9798 x03337,"Peabody, MA",White,Nonhispanic,married
+20,32c72cdb-66bf-4301-895e-16da54ffd72d,Ms. Kennith Morar,female,34 years,382-333-7091 x51246,"Newton, MA",White,Nonhispanic,unknown
+21,aeb76067-0f32-40a2-a29d-dfe7c4ab6638,Ms. Frederick Gulgowski,female,32 years,195-230-2003 x9892,"Brockton, MA",Black,Nonhispanic,unknown
+22,cb13a48a-0dea-40c9-8eeb-8e275e101e5d,Mr. Viviane Kunde,male,53 years,619-737-6908,"Haverhill, MA",Other,Puerto_rican,married
+23,c71d235f-9b58-4106-b744-c554da5e13fa,Mr. Sylvia Reilly,male,86 years,742-429-3479,"Malden, MA",White,Nonhispanic,married
+24,a0dcd747-1d40-40fd-8e42-1f9395f034ca,Ms. Evan Klocko,female,80 years,386-001-8200 x5002,"Lynn, MA",White,Nonhispanic,single
+25,3a268300-21fb-4ef0-b794-02aa0e5a7e5f,Mrs. Robbie Kling,female,95 years,1-309-534-9052,"Leicester, MA",White,Nonhispanic,married
+26,509474a0-baf3-48f2-a595-67b6e2b34c87,Mr. Tess DuBuque,male,33 years,1-569-036-1912 x83432,"Boston, MA",Other,Puerto_rican,unknown
+27,65dfe191-c7ef-4148-8f12-49f832525d4c, Destinee Welch,female,11 years,984-384-1363 x31838,"Holliston, MA",White,Nonhispanic,unknown
+28,1694897b-912e-401f-a135-aa59857a401e, Julien Barrows,male,17 years,653-189-9071 x849,"Hudson, MA",White,Nonhispanic,unknown
+29,21e19329-b572-414b-9cd1-ecf96af4f568,Mrs. Mekhi Flatley,female,77 years,564-380-6900 x16552,"Brewster, MA",White,Nonhispanic,married
+30,ddd6fcc5-4a60-450d-a55c-927113ec312e,Mrs. Casimer Hyatt,female,36 years,891-889-5056,"Stoneham, MA",White,Nonhispanic,married
+31,2c96b52c-5771-4563-a8a5-ef209924d5b2,Mrs. Jaydon Langworth,female,81 years,485-116-7599,"Brockton, MA",White,Nonhispanic,married
+32,95ad0405-ec9e-4464-a708-750296dc1548,Mrs. Estell Hodkiewicz,female,41 years,575-621-7064 x1127,"Hubbardston, MA",White,Nonhispanic,married
+33,7384d82c-2d1e-4595-99e4-f0ae962dddf1, Vincenza Crooks,male,18 years,680-431-1926 x154,"Lowell, MA",White,Nonhispanic,unknown
+34,bb357dc7-2f8a-444e-ba57-8291b6f18bf0,Ms. Sunny Pouros,female,71 years,608-524-4834,"Andover, MA",White,Nonhispanic,single
+35,1bd855fa-45c4-4c23-a608-fdeeb3bc2d8b,Mr. Mario Gulgowski,male,92 years,446-912-8743 x8502,"Lynn, MA",Other,Puerto_rican,married
+36,00d869e2-6793-4ebf-9340-38bf18d223c4,Ms. Melisa Gerhold,female,31 years,936-012-7686 x01564,"Methuen, MA",White,Nonhispanic,unknown
+37,a5399e95-981c-4a78-8019-873662fc7901,Mr. Jeanne Carter,male,46 years,237-167-0269 x694,"Acton, MA",White,Nonhispanic,single
+38,1b9a49ca-2cd4-492b-b040-dbb82a3348ab,Mr. Noe Rempel,male,114 years,697-104-6654,"Northampton, MA",White,Nonhispanic,married
