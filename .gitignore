@@ -10,3 +10,4 @@ pip-log.txt
 .ipynb_checkpoints
 
 pyvenv.cfg
+health_task/health_data/.~lock.Health Data.xlsx#
